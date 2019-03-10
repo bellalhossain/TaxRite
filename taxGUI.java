@@ -25,10 +25,10 @@ public class taxGUI extends javax.swing.JFrame {
    
 
     
-    String ppsnumber;
+   
     Double usc, netpay, healthInsurance, taxCredit, unionSubs, prsi, overTime;
     Double gross, hours, rate;
-    int count = 0; //set initial COUNT value to zero
+    
 
     tax p;
     public ArrayList<tax> aList = new ArrayList();
@@ -224,21 +224,21 @@ public class taxGUI extends javax.swing.JFrame {
                                         .addComponent(hf)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(hoursTF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(tarifaLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(rateLbl)
                                         .addGap(18, 18, 18)
                                         .addComponent(tauxLbl)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(healthTF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(rateTF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(healthLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(assuranceLbl)
                                             .addComponent(seguroLbl))
                                         .addGap(28, 28, 28)
-                                        .addComponent(rateTF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(healthTF, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(sindicatoLbl)
@@ -298,31 +298,26 @@ public class taxGUI extends javax.swing.JFrame {
                         .addComponent(he)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tarifaLbl)
-                                    .addComponent(rateLbl)
-                                    .addComponent(tauxLbl)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(weekly)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(assuranceLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(seguroLbl)
-                                .addGap(10, 10, 10))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(healthLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(monthly))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tarifaLbl)
+                            .addComponent(rateLbl)
+                            .addComponent(tauxLbl)
+                            .addComponent(rateTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(healthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rateTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addComponent(weekly)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(assuranceLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(seguroLbl)
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(healthLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(monthly)
+                        .addComponent(healthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -464,34 +459,29 @@ public class taxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_entitlementsActionPerformed
 
     private void annualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annualActionPerformed
-        for (int i = 0; i < aList.size(); i++) {
-            aList.get(i).weekly();
-            aList.get(i).monthly();
+        
+            aList.get(aList.size() -1).weekly();
+            aList.get(aList.size() -1).monthly();
 
-            JOptionPane.showMessageDialog(null, "\n annual payment details: " + aList.get(i).annual());
-System.out.println(""+ aList.get(i).netpay2());
-        }
+            JOptionPane.showMessageDialog(null, "\n annual payment details: " + aList.get(aList.size() -1).annual());
+System.out.println(""+  + aList.get(aList.size() -1).netpay2());
+        
     }//GEN-LAST:event_annualActionPerformed
 
     private void monthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthlyActionPerformed
-        for (int i = 0; i < aList.size(); i++) {
-
-            // PRINT FIANCIAL DETAILS USING AlIST
+        
             
-            aList.get(i).weekly();
-            JOptionPane.showMessageDialog(null, "\n monthly payment details: " + aList.get(i).monthly());
+         aList.get(aList.size() -1).weekly();
+           JOptionPane.showMessageDialog(null, "\n monthly payment details: " + aList.get(aList.size() -1).monthly());
 
-        }
+        
     }//GEN-LAST:event_monthlyActionPerformed
 private void weeklyActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        for (int i = 0; i < aList.size(); i++) {
+       
 //JOptionPane.showMessageDialog(null, "\n weekly payment details: " + aList.get(count-1).weekly());
-            JOptionPane.showMessageDialog(null, "\n weekly payment details: " + aList.get(i).weekly());
-            if (aList.get(i).gross() == 0.0 || aList.get(i).taxablePay() == 0.0 || aList.get(i).prsi() == 0.0) {// IF GROOS, PRSI EQUAL TO ZERO MEANS THE FIANCIAL DETAILS are NOT ENTERED BY THE USER
-                JOptionPane.showMessageDialog(null, " hello, finacial details are empty" + "" + "\n   please enter financial details ");
-            }
-
-        }
+            JOptionPane.showMessageDialog(null, "\n weekly payment details: " + aList.get(aList.size() -1).weekly());
+           
+        
 }
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
 
@@ -520,7 +510,7 @@ p.netpay2();
         aList.add(p); // ADD ALL VALUES TO ARRAYLIST
 
         System.out.println("alist: " + aList.toString());
-        count++;
+        
         writeToFile();
         
     }//GEN-LAST:event_addActionPerformed

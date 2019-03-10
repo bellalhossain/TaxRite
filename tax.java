@@ -72,7 +72,7 @@ public class tax implements Serializable{
     }
       public Double gross2() {
           Double gross2;
-        return gross2= gross*52.0;// create formula to calculate gross
+        return gross2= gross*52;// create formula to calculate gross
 
     }
 
@@ -84,12 +84,15 @@ public class tax implements Serializable{
        
     }
 public Double taxablePay2() {
-        return taxablePay *4*12;// create formula to calculate taxable pay
+        return taxablePay *52;// create formula to calculate taxable pay
     }
     public Double prsi() {
-
-        return PRSI = taxablePay * 0.04;// create formula to calculate prsi
-
+        if(taxablePay<400){
+        PRSI=0.0;}
+        else{
+         PRSI = taxablePay * 0.04;// create formula to calculate prsi
+        }
+        return PRSI;
     }
     public Double prsi1() {
 
@@ -105,9 +108,14 @@ public Double taxablePay2() {
     public Double usc() {// create formula to caculate usc
         if (taxablePay <= 231) {
             usc = taxablePay * 0.01;
-        } else if (taxablePay > 359 && taxablePay <= 1347) {
+        } 
+        else if(taxablePay > 231 && taxablePay <= 359){
+            usc = (((taxablePay - 231) * 0.03) + 2.31);
+        }
+        else if (taxablePay > 359 && taxablePay <= 1347) {
             usc = (((taxablePay - 359) * 0.055) + 6.15);
-        } else {
+        } 
+        else {
             usc = ((taxablePay - 1337) * 0.07) + (6.15 + 54.34);
         }
         return usc;
@@ -115,7 +123,11 @@ public Double taxablePay2() {
     public Double usc1() {// create formula to caculate usc
          if (taxablePay <= 231) {
             usc = taxablePay * 0.01;
-        } else if (taxablePay > 359 && taxablePay <= 1347) {
+        } 
+         else if(taxablePay > 231 && taxablePay <= 359){
+            usc = (((taxablePay - 231) * 0.03) + 2.31);
+        }
+         else if (taxablePay > 359 && taxablePay <= 1347) {
             usc = (((taxablePay - 359) * 0.055) + 6.15);
         } else {
             usc = ((taxablePay - 1337) * 0.07) + (6.15 + 54.34);
@@ -125,7 +137,11 @@ public Double taxablePay2() {
      public Double usc2() {// create formula to caculate usc
          if (taxablePay <= 231) {
             usc = taxablePay * 0.01;
-        } else if (taxablePay > 359 && taxablePay <= 1347) {
+        } 
+         else if(taxablePay > 231 && taxablePay <= 359){
+            usc = (((taxablePay - 231) * 0.03) + 2.31);
+        }
+         else if (taxablePay > 359 && taxablePay <= 1347) {
             usc = (((taxablePay - 359) * 0.055) + 6.15);
         } else {
             usc = ((taxablePay - 1337) * 0.07) + (6.15 + 54.34);
@@ -137,8 +153,9 @@ public Double taxablePay2() {
 
     public Double pay() {// create formula to calculate pay
         if (taxablePay <= 650) {
-            pay = taxablePay * 0.2;
-        } else if (taxablePay > 650) {
+            pay = taxablePay * 0.02;
+        } 
+        else if (taxablePay > 650) {
             pay = ((taxablePay - 650) * 0.4) + 130;
         }
         return pay;

@@ -21,26 +21,21 @@ public class entitelementGUI extends javax.swing.JFrame {
     /**
      * Creates new form entitelementGUI
      */
-    tax p;
-    taxGUI g;
-    entitelement e;
+  
+   
     int age;
     Double expenses;
 
     public ArrayList<tax> aList2 = new ArrayList();
-    //.addAll(copyArrayofList);
-    //List<T> newList = List.copyOf(oldList);
-   
+    
     public entitelementGUI() {
 
         initComponents();
-
     }
 
     public entitelementGUI(tax p, taxGUI g, entitelement e) {
-        this.p = p;
-        this.g = g;
-        this.e = e;
+       
+        
         initComponents();
     }
 
@@ -252,80 +247,30 @@ public class entitelementGUI extends javax.swing.JFrame {
 
         readFromFile();
 
-        // if u want to call the weekly netpay use  aList2.get(i).netpay();
-        // if u want to call the monthly  netpay use aList2.get(i).netpay1();
-        //if u wnat to call annual netpay use aList2.get(i).netpay2();
-        //                                                 just texting the funtion here 
-        for (int i = 0; i < aList2.size(); i++) {
+        //                                         susi entitlment 
+        //   Medical card entitlment 
+        aList2.get(aList2.size() - 1).weekly();
+        aList2.get(aList2.size() - 1).monthly();
 
-            aList2.get(i).weekly();     // add this line in other GUI
-            aList2.get(i).annual();       // add this line in other GUI also
-            aList2.get(i).netpay2();  //  add this line to use  netpay()2  method in your  if statements
-            if (aList2.get(i).netpay2() > 1000) {
-                JOptionPane.showMessageDialog(null, "your annual netpay equal to: " + aList2.get(i).netpay2() + "you are intitled to ");
-            }
-
+        // add this line in other GUI also
+        aList2.get(aList2.size() - 1).netpay2();
+        if (age < 66 && aList2.get(aList2.size() - 1).netpay() < 266.50 && ((kids.getSelectedIndex() == 2) || (kids.getSelectedIndex() == 3) || (kids.getSelectedIndex() == 4))) {
+           JOptionPane.showMessageDialog(null, "Medical card: dependants,<66 & weekly income < 266.50");
         }
-
-        //                                           susi entitlment 
-        for (int i = 0; i < aList2.size(); i++) {
-
-            aList2.get(i).weekly();     // add this line in other GUI
-            aList2.get(i).annual();       // add this line in other GUI also
-            aList2.get(i).netpay2();
-
+        else if ((age < 66) && (aList2.get(aList2.size() - 1).netpay() < 184.00) && ((kids.getSelectedIndex() == 1))) {
+            JOptionPane.showMessageDialog(null, "Medical card: single,<66 & weekly income < 184.00");
+        } 
+        else if (age >= 66 && aList2.get(aList2.size() - 1).netpay() < 173.50 && ((kids.getSelectedIndex() == 1))) {
+            JOptionPane.showMessageDialog(null, "Medical card: single, >=66 & weekly income < 173.50");
+        } 
+        else if (age >= 66 && aList2.get(aList2.size() - 1).netpay() < 298.00 && ((kids.getSelectedIndex() == 2) || (kids.getSelectedIndex() == 3) || (kids.getSelectedIndex() == 4))) {
+            JOptionPane.showMessageDialog(null, "Medical card: dependants, >=66 & weekly income < 298.00");
         }
-        //                                          Medical card entitlment 
+       
 
-        for (int i = 0; i < aList2.size(); i++) {
-
-            aList2.get(i).weekly();     // add this line in other GUI
-            aList2.get(i).annual();       // add this line in other GUI also
-            aList2.get(i).netpay2();
-            if (age < 66 && aList2.get(i).netpay() < 266.50 && ((kids.getSelectedIndex() == 2) || (kids.getSelectedIndex() == 3) || (kids.getSelectedIndex() == 4))) {
-                JOptionPane.showMessageDialog(null, "you are eligible" + aList2.get(i).netpay() + "to Medical card  if u have dependants and ur weekly income less than 266.50");
-            } else if (age < 66 && aList2.get(i).netpay() < 184.00 && ((kids.getSelectedIndex() == 1))) {
-                JOptionPane.showMessageDialog(null, "you are eligible to Medical card  if u r single and ur weekly income less than 184.00");
-            } else if (age > 66 && aList2.get(i).netpay() < 173.50 && ((kids.getSelectedIndex() == 1))) {
-                JOptionPane.showMessageDialog(null, "you are eligible to Medical card  if u r single and  older than 66 ur weekly income less than 173.50");
-            } else if (age > 66) {
-            }
-        }
         //                                                HAP
-        for (int i = 0; i < aList2.size(); i++) {
-
-            aList2.get(i).weekly();     // add this line in other GUI
-            aList2.get(i).annual();       // add this line in other GUI also
-            aList2.get(i).netpay2();
-
-        }
-
         //                                         social housing
-        for (int i = 0; i < aList2.size(); i++) {
-
-            aList2.get(i).weekly();     // add this line in other GUI
-            aList2.get(i).annual();       // add this line in other GUI also
-            aList2.get(i).netpay2();
-
-        }
-
         //                                      working family income
-        for (int i = 0; i < aList2.size(); i++) {
-
-            aList2.get(i).weekly();     // add this line in other GUI
-            aList2.get(i).annual();       // add this line in other GUI also
-            aList2.get(i).netpay2();
-
-        }
-
-        if (((status.getSelectedIndex() == 1) || (status.getSelectedIndex() == 2) || (status.getSelectedIndex() == 3))
-                && (nationality.getSelectedIndex() == 0) || (nationality.getSelectedIndex() == 1) || (nationality.getSelectedIndex() == 2) || (nationality.getSelectedIndex() == 3) || (nationality.getSelectedIndex() == 4)) {
-
-            JOptionPane.showMessageDialog(null, "you are entitled to  susi :");
-        } else if ((nationality.getSelectedIndex() == 5)) {
-            JOptionPane.showMessageDialog(null, "you are not eligible");
-        }
-
 
     }//GEN-LAST:event_entitlmentsActionPerformed
 
@@ -356,13 +301,13 @@ public class entitelementGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ageTFActionPerformed
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
-
-        /*  age= Integer.parseInt(ageTF.getText());
+ entitelement e;
+ e= new entitelement();
+         age= Integer.parseInt(ageTF.getText());
         //expenses= Double.parseDouble(expensesTF.getText());
         e.setAge(age);
         //e.setWeeklyexpenses(expenses);
-        aList2.add(e);*/
-
+       aList2.add(e);
     }//GEN-LAST:event_ADDActionPerformed
 
     public void readFromFile() {

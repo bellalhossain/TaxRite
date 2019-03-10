@@ -39,6 +39,8 @@ public class entitelement extends tax {
         this.age = age;
     }
 
+    
+
     public Double getWeeklyexpenses() {
         return weeklyexpenses;
     }
