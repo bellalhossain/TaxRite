@@ -240,14 +240,17 @@ public class entitelementGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statusActionPerformed
-
-    private void entitlmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entitlmentsActionPerformed
-
-        readFromFile();
-
-        //                                         susi entitlment 
+     readFromFile();
+ entitelement e;
+ e= new entitelement();
+ tax t;
+ t=new tax();
+         age= Integer.parseInt(ageTF.getText());
+        expenses= Double.parseDouble(expensesTF.getText());
+        e.setAge(age);
+        e.setWeeklyexpenses(expenses);
+       aList2.add(e);
+                                              
         //   Medical card entitlment 
         aList2.get(aList2.size() - 1).weekly();
         aList2.get(aList2.size() - 1).monthly();
@@ -258,14 +261,64 @@ public class entitelementGUI extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Medical card: dependants,<66 & weekly income < 266.50");
         }
         else if ((age < 66) && (aList2.get(aList2.size() - 1).netpay() < 184.00) && ((kids.getSelectedIndex() == 1))) {
-            JOptionPane.showMessageDialog(null, "Medical card: single,<66 & weekly income < 184.00");
+            JOptionPane.showMessageDialog(null, "Medical card: no dependants<66 & weekly income < 184.00");
         } 
         else if (age >= 66 && aList2.get(aList2.size() - 1).netpay() < 173.50 && ((kids.getSelectedIndex() == 1))) {
-            JOptionPane.showMessageDialog(null, "Medical card: single, >=66 & weekly income < 173.50");
+            JOptionPane.showMessageDialog(null, "Medical card:no dependants, >=66 & weekly income < 173.50");
         } 
         else if (age >= 66 && aList2.get(aList2.size() - 1).netpay() < 298.00 && ((kids.getSelectedIndex() == 2) || (kids.getSelectedIndex() == 3) || (kids.getSelectedIndex() == 4))) {
             JOptionPane.showMessageDialog(null, "Medical card: dependants, >=66 & weekly income < 298.00");
         }
+        
+        ///WFP(weekly family payment)
+
+         if ( aList2.get(aList2.size() - 1).netpay() <= 521.00 && ((kids.getSelectedIndex() == 2) )) {
+           
+                        JOptionPane.showMessageDialog(null, "You are entitle for weekly family payment to make it  all together €521  ");
+         }else if( aList2.get(aList2.size() - 1).netpay() <= 622.00 && ((kids.getSelectedIndex() == 3) )) {
+                          JOptionPane.showMessageDialog(null, "You are entitle for weekly family payment to make it  all together €622  ");
+         }
+         else if( aList2.get(aList2.size() - 1).netpay() <= 723.00 && ((kids.getSelectedIndex() == 4) )) {
+            
+               JOptionPane.showMessageDialog(null, "You are entitle for weekly family payment to make it  all together €723  ");
+         }
+         else if( aList2.get(aList2.size() - 1).netpay() <= 834.00 && ((kids.getSelectedIndex() == 5) )) {
+            
+               JOptionPane.showMessageDialog(null, "You are entitle for weekly family payment to make it  all together €834  ");
+        
+         }
+         else if( aList2.get(aList2.size() - 1).netpay() <= 960.00 && ((kids.getSelectedIndex() == 6) )) {
+            
+               JOptionPane.showMessageDialog(null, "You are entitle for weekly family payment to make it  all together €960 ");
+        
+         }
+         else
+               
+         { 
+                 
+              JOptionPane.showMessageDialog(null, "sorry u r not entitle for family sufflyment");
+         }
+               /// Child benefit
+        if (kids.getSelectedIndex() == 2){
+             JOptionPane.showMessageDialog(null, "You are entitle for child benefit of €140 with"+" "+kids);
+        }else if( kids.getSelectedIndex() == 3 ){
+             JOptionPane.showMessageDialog(null, "You are entitle for child benefit of €280 with"+" "+kids);
+        }else if( kids.getSelectedIndex() == 4 ){
+            JOptionPane.showMessageDialog(null, "You are entitle for child benefit of €420 with"+" "+kids);
+        }else if ( kids.getSelectedIndex() == 5 ){
+            JOptionPane.showMessageDialog(null, "You are entitle for child benefit of €560 with"+" "+kids);
+            
+        }else if ( kids.getSelectedIndex() == 6 ){
+            JOptionPane.showMessageDialog(null, "You are entitle for child benefit of €700 with"+" "+kids);
+            
+        }else if ( kids.getSelectedIndex() == 7 ){
+            JOptionPane.showMessageDialog(null, "You are entitle for child benefit of €840 with"+" "+kids);
+            
+        }else if ( kids.getSelectedIndex() == 7 ){
+            JOptionPane.showMessageDialog(null, "family sufflyments increase simultansiously €140 for every children ");
+            
+        }
+        
        
 
         //                                                HAP
